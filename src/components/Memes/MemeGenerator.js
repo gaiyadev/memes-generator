@@ -17,10 +17,17 @@ class MemeGenerator extends Component {
         this.setState({ [name]: value });
     };
     handleClick = () => {
-        let randomNumber = Math.floor(
-            Math.random() * this.state.allMemeImgs.length
-        );
-        this.setState({ randomImg: this.state.allMemeImgs[randomNumber].url });
+        if (this.state.font_size && this.state.topText && this.state.bottomText) {
+            let randomNumber = Math.floor(
+                Math.random() * this.state.allMemeImgs.length
+            );
+            this.setState({
+                randomImg: this.state.allMemeImgs[randomNumber].url
+            });
+        } else {
+            return;
+        }
+
     };
     increaseFont = () => { };
     componentDidMount() {
@@ -28,7 +35,9 @@ class MemeGenerator extends Component {
             .then(data => data.json())
             .then(response => {
                 const { memes } = response.data;
-                this.setState({ allMemeImgs: memes });
+                this.setState({
+                    allMemeImgs: memes
+                });
             });
     }
     render() {

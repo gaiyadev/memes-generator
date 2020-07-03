@@ -1,7 +1,7 @@
 import React from 'react';
 const inputField = (props) => {
     return (
-        <div className="meme-form">
+        <div className="meme-form" >
             <input
                 type="text"
                 name="topText"
