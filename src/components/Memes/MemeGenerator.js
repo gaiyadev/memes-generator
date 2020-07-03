@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import InputField from '../../components/InputField/InputField';
 
 class MemeGenerator extends Component {
     constructor() {
@@ -34,32 +35,11 @@ class MemeGenerator extends Component {
         console.log(this.state.font_size);
         return (
             <div>
-                <div className="meme-form">
-                    <input
-                        type="text"
-                        name="topText"
-                        placeholder="top text"
-                        onChange={this.handleChange}
-                        value={this.state.topText}
-                    />
-                    <br />
-                    <input
-                        type="text"
-                        name="bottomText"
-                        placeholder="bottom text"
-                        onChange={this.handleChange}
-                        value={this.state.bottomText}
-                    />
-                    <br />
-                    <input
-                        type="number"
-                        name="font_size"
-                        placeholder="font size"
-                        onChange={this.handleChange}
-                        value={this.state.font_size}
-                    />
-                    <button onClick={this.handleClick}>Generate!</button>
-                </div>
+                <InputField change={this.handleChange}
+                    btnValue={this.state.bottomText}
+                    topValue={this.state.topText}
+                    textValue={this.state.font_size}
+                    click={this.handleClick} />
                 <div className="meme">
                     <h2
                         style={{ fontSize: Number(this.state.font_size) }}
